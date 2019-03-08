@@ -1,39 +1,107 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-        <title>Hello, world!</title>
+        <link rel="stylesheet" href="/main.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        <title>{{ config.title }}</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">{{ config.title }}</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    {% for button in config.extra.buttons  %}
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ button.url }}">{{ button.name }}</a>
-                    </li>
+        <nav class="navbar is-{{ config.extra.style }}" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item is-size-4" href="/">
+                    <strong>{{ config.title }}</strong>
+                </a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    {% for button in config.extra.menu_left %}
+                    <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
+                        <strong>{{ button.name }}</strong>
+                    </a>
                     {% endfor %}
-                </ul>
+                </div>
+                <div class="navbar-end">
+                    {% for button in config.extra.menu_right %}
+                    <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
+                        <strong>{{ button.name }}</strong>
+                    </a>
+                    {% endfor %}
+                </div>
             </div>
         </nav>
-        <h1>Hello, world!</h1>
-        {{ __tera_context }}
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <section class="section">
+            <div class="container">
+                <div class="columns is-desktop">
+                    <div class="column is-10 is-offset-1">
+                        <div class="columns is-desktop">
+                            <div class="column is-one-third-desktop">
+                                <div class="box has-text-centered">
+                                    <figure class="image is-192x192 is-centered is-inline-block">
+                                        <img class="is-rounded" src="{{ config.extra.portrait | safe }}">
+                                    </figure>
+                                    <div class="is-size-3 content"><strong>{{ config.extra.author }}</strong></div>
+                                    <div class="is-size-5">{{ config.extra.role }}</div>
+                                    {% for organization in config.extra.organizations %}
+                                    <div class="is-size-5 content">{{ organization.name }}</div>
+                                    {% endfor %}
+                                    <div class="content">
+                                        {% for icon in config.extra.social_icons %}
+                                        <a class="icon is-large fa-3x" href="{{icon.link | safe }}">
+                                            <i class="has-text-{{ config.extra.style }} {{icon.icon_pack}} {{ icon.icon }}"></i>
+                                        </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-two-thirds-desktop markdown">
+                                {% for page in section.pages %}
+                                {% if page.relative_path == "about.md" %}
+                                {{ page.content | safe }}
+                                {% endif %}
+                                {% endfor %}
+                                <div class="columns">
+                                    <div class="column is-one-half content">
+                                        <h4>Interests</h4>
+                                        <ul>
+                                            {% for interest in config.extra.interests %}
+                                            {% if interest.link %}
+                                            <li><a href="{{ interest.link }}">{{ interest.label }}</a></li>
+                                            {% else %}
+                                            <li>{{ interest.label }}</li>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <div class="column is-one-half">
+                                        <h4>Education</h4>
+                                        {% for education in config.extra.education %}
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <span class="icon">
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                </span>
+                                            </div>
+                                            <div class="media-content">
+                                                <p>{{ education.course }}, {{ education.year }}</p>
+                                                <p class="has-text-grey">{{ education.institution }}</p>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

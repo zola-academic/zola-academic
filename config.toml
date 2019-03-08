@@ -1,8 +1,8 @@
 # The title of the site
-title = "Example"
+title = "tforgione.fr"
 
 # The URL the site will be built for
-base_url = "https://example.com"
+base_url = "https://tforgione.fr"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -17,6 +17,58 @@ build_search_index = true
 [extra]
 # Put all your custom variables here
 
-buttons = [
-    { name = "toto", url = "/toto" },
+# Author of the page
+author = "Thomas Forgione"
+
+# Role of the author
+role = "PhD Student"
+
+# Organizations of the author
+organizations = [ { name = "IRIT, Toulouse" } ]
+
+# Url of your profile pic
+# You should put your portrait in the static directory.
+portrait = "/img/portrait.jpg"
+
+# The links you want to put on the left of the navbar
+menu_left = [
 ]
+
+# The links you want to put on the right of the navbar:w
+menu_right = [
+    { name = "Publications", link = "#" },
+    { name = "Demos", link = "#" },
+    { name = "Contact", link = "#" }
+]
+
+# Social icons that will appear under your profile box
+social_icons = [
+{icon="fa-envelope", icon_pack="fa", link="mailto:thomas@forgione.fr"},
+{icon="ai-google-scholar", icon_pack="ai", link="https://scholar.google.fr/citations?user=m0Ia3KEAAAAJ"},
+{icon="fa-git", icon_pack="fab", link="https://gitea.tforgione.fr/tforgione/"}
+]
+
+# Your interests
+interests = [
+    { label = "Rust", link = "https://www.rust-lang.org" },
+    { label = "Ubports Ubuntu Touch", link = "https://ubports.com/)" },
+    { label = "3D graphics" },
+    { label = "Multimedia" },
+    { label = "Guitar" }
+]
+
+education = [
+{course = "Engineer in IT and applied mathematics", institution = "ENSEEIHT, Toulouse, France", year = 2015},
+]
+
+# Choose your style among these
+# style = "primary"
+style = "link"
+# style = "info"
+# style = "success"
+# style = "warning"
+# style = "danger"
+# style = "black"
+# style = "dark"
+# style = "light"
+# style = "white"
