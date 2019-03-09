@@ -38,7 +38,7 @@ portrait = "/static/img/portrait.jpg"
 menu_left = [
 ]
 
-# The links you want to put on the right of the navbar:w
+# The links you want to put on the right of the navbar
 menu_right = [
     { name = "Publications", link = "/publications" },
     { name = "Demos", link = "/demo" },
