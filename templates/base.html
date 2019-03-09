@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -8,35 +9,42 @@
         {% block extracss %}{% endblock extracss %}
         <title>{{ config.title }}</title>
     </head>
-    <body>
+    <body class="layout-documentation page-components">
         <nav class="navbar is-{{ config.extra.style }}" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <a class="navbar-item is-size-4" href="/">
-                    <strong>{{ config.title }}</strong>
-                </a>
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-                    {% for button in config.extra.menu_left %}
-                    <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
-                        <strong>{{ button.name }}</strong>
+            {% if not config.extra.wide_navbar %}
+            <div class="container">
+                {% endif %}
+                <div class="navbar-brand">
+                    <a class="navbar-item is-size-4" href="/">
+                        <strong>{{ config.title }}</strong>
                     </a>
-                    {% endfor %}
-                </div>
-                <div class="navbar-end">
-                    {% for button in config.extra.menu_right %}
-                    <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
-                        <strong>{{ button.name }}</strong>
+                    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
                     </a>
-                    {% endfor %}
                 </div>
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        {% for button in config.extra.menu_left %}
+                        <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
+                            <strong>{{ button.name }}</strong>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    <div class="navbar-end">
+                        {% for button in config.extra.menu_right %}
+                        <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
+                            <strong>{{ button.name }}</strong>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% if not config.extra.wide_navbar %}
             </div>
+            {% endif %}
         </nav>
         {% block content %}{% endblock content %}
+        {{ __tera_context }}
     </body>
 </html>

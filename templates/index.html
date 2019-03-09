@@ -8,7 +8,7 @@
                     <div class="column is-one-third-desktop">
                         <div class="box has-text-centered">
                             <figure class="image is-192x192 is-centered is-inline-block">
-                                <img class="is-rounded" src="{{ config.extra.portrait | safe }}">
+                                <img class="is-rounded" src="{{ resize_image(path="../" ~ config.extra.portrait, width=384, height=384) }}">
                             </figure>
                             <div class="is-size-3 content"><strong>{{ config.extra.author }}</strong></div>
                             <div class="is-size-5">{{ config.extra.role }}</div>

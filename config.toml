@@ -2,7 +2,7 @@
 title = "tforgione.fr"
 
 # The URL the site will be built for
-base_url = "https://tforgione.fr"
+base_url = "/"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -23,12 +23,15 @@ author = "Thomas Forgione"
 # Role of the author
 role = "PhD Student"
 
+# Whether the navbar should be screen wide or page wide
+wide_navbar = false
+
 # Organizations of the author
 organizations = [ { name = "IRIT, Toulouse" } ]
 
 # Url of your profile pic
 # You should put your portrait in the static directory.
-portrait = "img/portrait.jpg"
+portrait = "/static/img/portrait.jpg"
 
 # The links you want to put on the left of the navbar
 menu_left = [
