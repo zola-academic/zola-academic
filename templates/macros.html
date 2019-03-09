@@ -16,8 +16,8 @@
 {% endmacro %}
 
 {% macro publication_header_with_image(publication) %}
-<div class="media">
-    <div class="media-content">
+<div class="columns is-desktop">
+    <div class="column is-desktop is-two-thirds">
         <h2><a href="{{ get_url(path=("./" ~ publication.relative_path))}}">{{ publication.title }}</a></h2>
         <p class="has-text-grey"> {{ publication.extra.authors | join(sep=", ") }} <br/>
         {{ publication.extra.publication }}, {{ publication.extra.year }}</p>
@@ -33,8 +33,8 @@
             {% endfor %}
         </p>
     </div>
-    <div class="media-right">
-        <figure class="image is-128x128">
+    <div class="column is-desktop is-one-third container">
+        <figure class="image is-192x192">
             <img src="{{ get_url(path=publication.extra.image.path) }}"></img>
         </figure>
     </div>
