@@ -103,7 +103,7 @@
                         <ul>
                         {% for contact_link in config.extra.contact_links %}
                         <li class="media">
-                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} is-{{ config.extra.style }} media-left"></i>
+                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} media-left"></i>
                             <a href="{{ get_url(path=contact_link.link) | safe }}" class="media-content">
                                 {{ contact_link.name }}
                             </a>
