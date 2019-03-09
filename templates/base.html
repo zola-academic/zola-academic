@@ -45,5 +45,14 @@
             {% endif %}
         </nav>
         {% block content %}{% endblock content %}
+        {% block footer %}
+        {% if not config.extra.disable_footer %}
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>Powered by <strong><a href="https://gitea.tforgione.fr/tforgione/zola-academic">the academic theme</a></strong> for <strong><a href="https://www.getzola.org">Zola</a></strong>.
+            </div>
+        </footer>
+        {% endif %}
+        {% endblock footer %}
     </body>
 </html>

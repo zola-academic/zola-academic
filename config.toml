@@ -76,6 +76,9 @@ contact_links = [
   {icon="fa-envelope", icon_pack="fa", name = "thomas@forgione.fr", link="mailto:thomas@forgione.fr"},
 ]
 
+# Disable the footer
+disable_footer = false
+
 # Choose your style among these
 # style = "primary"
 style = "link"
