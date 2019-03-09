@@ -1,11 +1,11 @@
-name = "my theme name"
-description = "A classic blog theme"
-license = "LGPL-3.0-only"
+name = "Zola Academic"
+description = "An academic theme inspired by Hugo-Academic"
+license = "MIT"
 homepage = "https://gitea.tforgione.fr/tforgione/zola-academic"
 # The minimum version of Zola required
 min_version = "0.4.0"
 # An optional live demo URL
-demo = ""
+demo = "https://tforgione.fr"
 
 # Any variable there can be overriden in the end user `config.toml`
 # You don't need to prefix variables by the theme name but as this will
