@@ -49,6 +49,7 @@ menu_right = [
 social_icons = [
 {icon="fa-envelope", icon_pack="fa", link="mailto:thomas@forgione.fr"},
 {icon="ai-google-scholar", icon_pack="ai", link="https://scholar.google.fr/citations?user=m0Ia3KEAAAAJ"},
+{icon="fa-github", icon_pack="fab", link="https://github.com/tforgione/" },
 {icon="fa-git", icon_pack="fab", link="https://gitea.tforgione.fr/tforgione/"}
 ]
 
