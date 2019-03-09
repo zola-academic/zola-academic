@@ -7,8 +7,9 @@
             <div class="column is-10 is-offset-1">
                 <div class="markdown content">
                     <h1>{{ section.title }}</h1>
-                    {% for publication in section.pages %}
-                        {{ macros::publication_header(publication=publication) }}
+                    {% for publication_path in section.subsections %}
+                    {% set publication = get_section(path=publication_path) %}
+                    {{ macros::publication_header(publication=publication) }}
                     {% endfor %}
                 </div>
             </div>

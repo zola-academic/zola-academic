@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros.html" as macros %}
 {% block content %}
 <section class="section">
     <div class="container">
@@ -76,7 +77,13 @@
                         <h1 class="title is-1">Publications</h1>
                     </div>
                     <div class="column is-two-thirds-desktop">
-
+                        {% set publications = get_section(path="publications/_index.md") %}
+                        {% for publication_path in publications.subsections %}
+                        <div class="content">
+                            {% set publication = get_section(path=publication_path) %}
+                            {{ macros::publication_header(publication=publication) }}
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
