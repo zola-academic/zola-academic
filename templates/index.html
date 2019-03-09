@@ -25,7 +25,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column is-two-thirds-desktop markdown">
+                    <div class="column is-two-thirds-desktop content">
                         {% for page in section.pages %}
                         {% if page.relative_path == "about.md" %}
                         {{ page.content | safe }}
@@ -76,15 +76,15 @@
                     <div class="column is-one-third-desktop">
                         <h1 class="title is-1">Publications</h1>
                     </div>
-                    <div class="column is-two-thirds-desktop">
+                    <ul class="column is-two-thirds-desktop">
                         {% set publications = get_section(path="publications/_index.md") %}
                         {% for publication_path in publications.subsections %}
-                        <div class="content">
+                        <li class="content">
                             {% set publication = get_section(path=publication_path) %}
-                            {{ macros::publication_header(publication=publication) }}
+                            {{ macros::publication_header_with_image(publication=publication) }}
                             {% endfor %}
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

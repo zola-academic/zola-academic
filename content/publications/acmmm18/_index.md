@@ -13,9 +13,9 @@ year = 2018
 links = [
     { name = "Long paper", link = "/publications/acmmm18/long.pdf" },
     { name = "Demo paper", link = "/publications/acmmm18/demo.pdf" },
-    { name = "Explicative video", link = "https://www.youtube.com/watch?v=tGruvbs_H0g" },
+    { name = "Video", link = "https://www.youtube.com/watch?v=tGruvbs_H0g" },
     { name = "Poster", link = "/publications/acmmm188/poster.pdf" },
-    { name = "Online demos", link = "/demo" }
+    { name = "Demos", link = "/demo" }
 ]
 
 image = { path = "/publications/acmmm18/bigpicture.png", style="banner" }

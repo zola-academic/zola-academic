@@ -5,13 +5,13 @@
     <div class="container">
         <div class="columns is-desktop">
             <div class="column is-10 is-offset-1">
-                <div class="markdown content">
+                <ul class="content">
                     <h1>{{ section.title }}</h1>
                     {% for publication_path in section.subsections %}
                     {% set publication = get_section(path=publication_path) %}
-                    {{ macros::publication_header(publication=publication) }}
+                    <li class="content">{{ macros::publication_header_with_image(publication=publication) }}</li>
                     {% endfor %}
-                </div>
+                </ul>
             </div>
         </div>
     </div>

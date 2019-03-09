@@ -12,7 +12,7 @@
     <div class="container">
         <div class="columns is-desktop">
             <div class="column is-10 is-offset-1">
-                <div class="markdown content">
+                <div class="content">
                     {{ macros::publication_header(publication=section) }}
                 </div>
             </div>
@@ -23,7 +23,7 @@
 <div class="columns">
     <div class="column is-offset-1 is-10">
         <div class="columns">
-            <div class="column is-one-half markdown">
+            <div class="column is-one-half content">
                 {{ macros::publication_header(publication=section) }}
             </div>
             <div class="column is-one-half">
@@ -38,16 +38,12 @@
 
 <section class="section">
     <div class="container">
-        <div class="columns is-desktop">
-            <div class="column is-10 is-offset-1">
-                <div class="markdown content">
-                    <div class="has-text-justified">
-                        <h3>Abstract</h3>
-                        {{ section.extra.abstract }}
-                    </div>
-                    {{ section.content | safe }}
-                </div>
+        <div class="content">
+            <div class="has-text-justified">
+                <h3>Abstract</h3>
+                {{ section.extra.abstract }}
             </div>
+            {{ section.content | safe }}
         </div>
     </div>
 </section>
