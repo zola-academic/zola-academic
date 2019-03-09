@@ -4,6 +4,8 @@ A theme inspired by [Hugo Academic](https://github.com/gcushen/hugo-academic) fo
 
 ![A screenshot of the zola-academic theme](https://raw.githubusercontent.com/tforgione/zola-academic/master/screenshot-cropped.png)
 
+*This is a work in progress, it can't hold a candle to hugo-academic*
+
 # Getting started
 
 You should first [install Zola](https://www.getzola.org/documentation/getting-started/installation/).
