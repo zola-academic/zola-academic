@@ -3,17 +3,13 @@
 {% block content %}
 <section class="section">
     <div class="container">
-        <div class="columns is-desktop">
-            <div class="column is-10 is-offset-1">
-                <ul class="content">
-                    <h1>{{ section.title }}</h1>
-                    {% for publication_path in section.subsections %}
-                    {% set publication = get_section(path=publication_path) %}
-                    <li class="content">{{ macros::publication_header_with_image(publication=publication) }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
+        <ul class="content">
+            <h1>{{ section.title }}</h1>
+            {% for publication_path in section.subsections %}
+            {% set publication = get_section(path=publication_path) %}
+            <li class="content">{{ macros::publication_header_with_image(publication=publication) }}</li>
+            {% endfor %}
+        </ul>
     </div>
 </section>
 {% endblock content %}

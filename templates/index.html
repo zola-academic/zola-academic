@@ -71,22 +71,18 @@
 <section class="section">
     <div class="container">
         <div class="columns is-desktop">
-            <div class="column is-10 is-offset-1">
-                <div class="columns is-desktop">
-                    <div class="column is-one-third-desktop">
-                        <h1 class="title is-1">Publications</h1>
-                    </div>
-                    <ul class="column is-two-thirds-desktop">
-                        {% set publications = get_section(path="publications/_index.md") %}
-                        {% for publication_path in publications.subsections %}
-                        <li class="content">
-                            {% set publication = get_section(path=publication_path) %}
-                            {{ macros::publication_header_with_image(publication=publication) }}
-                            {% endfor %}
-                        </li>
-                    </ul>
-                </div>
+            <div class="column is-one-third-desktop">
+                <h1 class="title is-1">Publications</h1>
             </div>
+            <ul class="column is-two-thirds-desktop">
+                {% set publications = get_section(path="publications/_index.md") %}
+                {% for publication_path in publications.subsections %}
+                <li class="content">
+                    {% set publication = get_section(path=publication_path) %}
+                    {{ macros::publication_header_with_image(publication=publication) }}
+                    {% endfor %}
+                </li>
+            </ul>
         </div>
     </div>
 </section>
@@ -94,24 +90,20 @@
 <section id="contact" class="section">
     <div class="container">
         <div class="columns is-desktop">
-            <div class="column is-10 is-offset-1">
-                <div class="columns is-desktop">
-                    <div class="column is-one-third-desktop">
-                        <h1 class="title is-1">Contact</h1>
-                    </div>
-                    <div class="column is-two-thirds-desktop">
-                        <ul>
-                        {% for contact_link in config.extra.contact_links %}
-                        <li class="media">
-                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} media-left"></i>
-                            <a href="{{ get_url(path=contact_link.link) | safe }}" class="media-content">
-                                {{ contact_link.name }}
-                            </a>
-                        </li>
-                        {% endfor %}
-                        </ul>
-                    </div>
-                </div>
+            <div class="column is-one-third-desktop">
+                <h1 class="title is-1">Contact</h1>
+            </div>
+            <div class="column is-two-thirds-desktop">
+                <ul>
+                    {% for contact_link in config.extra.contact_links %}
+                    <li class="media">
+                        <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} media-left"></i>
+                        <a href="{{ get_url(path=contact_link.link) | safe }}" class="media-content">
+                            {{ contact_link.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>
