@@ -1,7 +1,7 @@
-name = "Zola Academic"
+name = "zola-academic"
 description = "An academic theme inspired by Hugo-Academic"
 license = "MIT"
-homepage = "https://gitea.tforgione.fr/tforgione/zola-academic"
+homepage = "https://github.com/tforgione/zola-academic"
 # The minimum version of Zola required
 min_version = "0.4.0"
 # An optional live demo URL
