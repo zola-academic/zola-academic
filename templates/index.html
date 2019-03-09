@@ -8,7 +8,7 @@
                     <div class="column is-one-third-desktop">
                         <div class="box has-text-centered">
                             <figure class="image is-192x192 is-centered is-inline-block">
-                                <img class="is-rounded" src="{{ resize_image(path="../" ~ config.extra.portrait, width=384, height=384) }}">
+                                <img class="is-rounded" src="{{ resize_image(path="../" ~ config.extra.portrait, width=384, height=384) | safe }}">
                             </figure>
                             <div class="is-size-3 content"><strong>{{ config.extra.author }}</strong></div>
                             <div class="is-size-5">{{ config.extra.role }}</div>
@@ -36,7 +36,7 @@
                                 <ul>
                                     {% for interest in config.extra.interests %}
                                     {% if interest.link %}
-                                    <li><a href="{{ interest.link }}">{{ interest.label }}</a></li>
+                                    <li><a href="{{ get_url(path=interest.link) | safe }}">{{ interest.label }}</a></li>
                                     {% else %}
                                     <li>{{ interest.label }}</li>
                                     {% endif %}
@@ -60,6 +60,49 @@
                                 {% endfor %}
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-10 is-offset-1">
+                <div class="columns is-desktop">
+                    <div class="column is-one-third-desktop">
+                        <h1 class="title is-1">Publications</h1>
+                    </div>
+                    <div class="column is-two-thirds-desktop">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-10 is-offset-1">
+                <div class="columns is-desktop">
+                    <div class="column is-one-third-desktop">
+                        <h1 class="title is-1">Contact</h1>
+                    </div>
+                    <div class="column is-two-thirds-desktop">
+                        <ul>
+                        {% for contact_link in config.extra.contact_links %}
+                        <li class="media">
+                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} is-{{ config.extra.style }} media-left"></i>
+                            <a href="{{ get_url(path=contact_link.link) | safe }}" class="media-content">
+                                {{ contact_link.name }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="{{ get_url(path="/main.css") | safe }}">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
         {% block extracss %}{% endblock extracss %}
@@ -15,7 +15,7 @@
             <div class="container">
                 {% endif %}
                 <div class="navbar-brand">
-                    <a class="navbar-item is-size-4" href="/">
+                    <a class="navbar-item is-size-4" href="{{ get_url(path="/") | safe }}">
                         <strong>{{ config.title }}</strong>
                     </a>
                     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -27,14 +27,14 @@
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
                         {% for button in config.extra.menu_left %}
-                        <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
+                        <a class="navbar-item is-size-6" href="{{ get_url(path=button.link) | safe }}">
                             <strong>{{ button.name }}</strong>
                         </a>
                         {% endfor %}
                     </div>
                     <div class="navbar-end">
                         {% for button in config.extra.menu_right %}
-                        <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
+                        <a class="navbar-item is-size-6" href="{{ get_url(path=button.link) | safe }}">
                             <strong>{{ button.name }}</strong>
                         </a>
                         {% endfor %}
@@ -45,6 +45,5 @@
             {% endif %}
         </nav>
         {% block content %}{% endblock content %}
-        {{ __tera_context }}
     </body>
 </html>

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block content %}
+
+{% if page.extra.image.style == "banner" %}
+<section class="hero">
+    <figure class="image">
+        <img src="{{ config.base_url ~ page.extra.image.path }}"</img>
+    </figure>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-10 is-offset-1">
+                <div class="markdown content">
+                    {{ macros::publication_header(publication=page) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% elif page.extra.image.style == "figure" %}
+<div class="columns">
+    <div class="column is-offset-1 is-10">
+        <div class="columns">
+            <div class="column is-one-half markdown">
+                {{ macros::publication_header(publication=page) }}
+            </div>
+            <div class="column is-one-half">
+                <figure class="media-right">
+                    <img src="{{ config.base_url ~ page.extra.image.path }}">
+                </figure>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-10 is-offset-1">
+                <div class="markdown content">
+                    <div class="has-text-justified">
+                        <h3>Abstract</h3>
+                        {{ page.extra.abstract }}
+                    </div>
+                    {{ page.content | safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% macro publication_header(publication) %}
+<h1><a href="{{ get_url(path=("./" ~ publication.relative_path))}}">{{ publication.title }}</a></h1>
+<p class="has-text-grey"> {{ publication.extra.authors | join(sep=", ") }} </p>
+<p class="has-text-grey"> {{ publication.extra.publication }}, {{ publication.extra.year }}</p>
+<p>
+    {% for link in publication.extra.links %}
+    {% if link.link is starting_with("http://") or link.link is starting_with("https://") %}
+        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ link.link | safe }}">
+    {% else %}
+        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ get_url(path=link.link) | safe }}">
+    {% endif %}
+            {{ link.name }}
+        </a>
+    {% endfor %}
+</p>
+{% endmacro %}

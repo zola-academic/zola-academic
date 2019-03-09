@@ -2,7 +2,8 @@
 title = "tforgione.fr"
 
 # The URL the site will be built for
-base_url = "/"
+# base_url = "http://localhost:8000/"
+base_url = "https://storage.tforgione.fr/zola/"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -39,9 +40,9 @@ menu_left = [
 
 # The links you want to put on the right of the navbar:w
 menu_right = [
-    { name = "Publications", link = "#" },
-    { name = "Demos", link = "#" },
-    { name = "Contact", link = "#" }
+    { name = "Publications", link = "/publications" },
+    { name = "Demos", link = "/demo" },
+    { name = "Contact", link = "/#contact" }
 ]
 
 # Social icons that will appear under your profile box
@@ -60,8 +61,19 @@ interests = [
     { label = "Guitar" }
 ]
 
+# Your diplomas
 education = [
 {course = "Engineer in IT and applied mathematics", institution = "ENSEEIHT, Toulouse, France", year = 2015},
+]
+
+# The ways people can contact you
+contact_links = [
+  # {icon = "twitter", icon_pack = "fab", name = "DM Me", link = "https://twitter.com/Twitter"},
+  # {icon = "skype", icon_pack = "fab", name = "Skype Me", link = "skype:echo123?call"},
+  # {icon = "keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/"},
+  # {icon = "comments", icon_pack = "fas", name = "Discuss on Forum", link = "https://discourse.gohugo.io"},
+  {icon = "fa-telegram", icon_pack = "fab", name = "@tforgione", link = "https://telegram.me/@tforgione"},
+  {icon="fa-envelope", icon_pack="fa", name = "thomas@forgione.fr", link="mailto:thomas@forgione.fr"},
 ]
 
 # Choose your style among these
