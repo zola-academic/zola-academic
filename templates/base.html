@@ -1,0 +1,42 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
+        {% block extracss %}{% endblock extracss %}
+        <title>{{ config.title }}</title>
+    </head>
+    <body>
+        <nav class="navbar is-{{ config.extra.style }}" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item is-size-4" href="/">
+                    <strong>{{ config.title }}</strong>
+                </a>
+                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    {% for button in config.extra.menu_left %}
+                    <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
+                        <strong>{{ button.name }}</strong>
+                    </a>
+                    {% endfor %}
+                </div>
+                <div class="navbar-end">
+                    {% for button in config.extra.menu_right %}
+                    <a class="navbar-item is-size-6" href="{{ button.link | safe }}">
+                        <strong>{{ button.name }}</strong>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </nav>
+        {% block content %}{% endblock content %}
+    </body>
+</html>
