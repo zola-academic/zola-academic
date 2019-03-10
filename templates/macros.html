@@ -1,0 +1,43 @@
+{% macro publication_header(publication) %}
+<h2><a href="{{ get_url(path=("./" ~ publication.relative_path))}}">{{ publication.title }}</a></h2>
+<p class="has-text-grey"> {{ publication.extra.authors | join(sep=", ") }} <br/>
+{{ publication.extra.publication }}, {{ publication.extra.year }}</p>
+<p>
+    {% for link in publication.extra.links %}
+    {% if link.link is starting_with("http://") or link.link is starting_with("https://") %}
+        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ link.link | safe }}">
+    {% else %}
+        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ get_url(path=link.link) | safe }}">
+    {% endif %}
+            {{ link.name }}
+        </a>
+    {% endfor %}
+</p>
+{% endmacro %}
+
+{% macro publication_header_with_image(publication) %}
+<div class="columns is-desktop">
+    <div class="column is-desktop is-two-thirds">
+        <h2><a href="{{ get_url(path=("./" ~ publication.relative_path))}}">{{ publication.title }}</a></h2>
+        <p class="has-text-grey"> {{ publication.extra.authors | join(sep=", ") }} <br/>
+        {{ publication.extra.publication }}, {{ publication.extra.year }}</p>
+        <p>
+        {% for link in publication.extra.links %}
+        {% if link.link is starting_with("http://") or link.link is starting_with("https://") %}
+        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ link.link | safe }}">
+            {% else %}
+            <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ get_url(path=link.link) | safe }}">
+                {% endif %}
+                {{ link.name }}
+            </a>
+            {% endfor %}
+        </p>
+    </div>
+    <div class="column is-desktop is-one-third container">
+        <figure class="image is-192x192">
+            <img src="{{ get_url(path=publication.extra.image.path) }}"></img>
+        </figure>
+    </div>
+</div>
+{% endmacro %}
+

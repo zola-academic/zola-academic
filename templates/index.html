@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-10 is-offset-1">
+                <div class="columns is-desktop">
+                    <div class="column is-one-third-desktop">
+                        <div class="box has-text-centered">
+                            <figure class="image is-192x192 is-centered is-inline-block">
+                                <img class="is-rounded" src="{{ resize_image(path="../" ~ config.extra.portrait, width=384, height=384) | safe }}">
+                            </figure>
+                            <div class="is-size-3 content"><strong>{{ config.extra.author }}</strong></div>
+                            <div class="is-size-5">{{ config.extra.role }}</div>
+                            {% for organization in config.extra.organizations %}
+                            <div class="is-size-5 content">{{ organization.name }}</div>
+                            {% endfor %}
+                            <div class="content">
+                                {% for icon in config.extra.social_icons %}
+                                <a class="icon is-large fa-3x" href="{{icon.link | safe }}">
+                                    <i class="has-text-{{ config.extra.style }} {{icon.icon_pack}} {{ icon.icon }}"></i>
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-two-thirds-desktop content">
+                        {% for page in section.pages %}
+                        {% if page.relative_path == "about.md" %}
+                        <h1>{{ page.title }}</h1>
+                        {{ page.content | safe }}
+                        {% endif %}
+                        {% endfor %}
+                        <div class="columns">
+                            <div class="column is-one-half content">
+                                <h4>Interests</h4>
+                                <ul>
+                                    {% for interest in config.extra.interests %}
+                                    {% if interest.link %}
+                                    <li><a href="{{ get_url(path=interest.link) | safe }}">{{ interest.label }}</a></li>
+                                    {% else %}
+                                    <li>{{ interest.label }}</li>
+                                    {% endif %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="column is-one-half">
+                                <h4>Education</h4>
+                                {% for education in config.extra.education %}
+                                <div class="media">
+                                    <div class="media-left">
+                                        <span class="icon">
+                                            <i class="fas fa-graduation-cap"></i>
+                                        </span>
+                                    </div>
+                                    <div class="media-content">
+                                        <p>{{ education.course }}, {{ education.year }}<br/>
+                                        <span class="has-text-grey">{{ education.institution }}</span></p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-one-third-desktop">
+                <h1 class="title is-1" id="publications">Publications</h1>
+            </div>
+            <ul class="column is-two-thirds-desktop">
+                {% set publications = get_section(path="publications/_index.md") %}
+                {% set sorted_publications = publications.subsections | reverse %}
+                {% for publication_path in sorted_publications %}
+                <li class="content">
+                    {% set publication = get_section(path=publication_path) %}
+                    {{ macros::publication_header_with_image(publication=publication) }}
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-one-third-desktop">
+                <h1 class="title is-1">Contact</h1>
+            </div>
+            <div class="column is-two-thirds-desktop">
+                <ul>
+                    {% for contact_link in config.extra.contact_links %}
+                    <li class="media">
+                        <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} media-left"></i>
+                        <a href="{{ get_url(path=contact_link.link) | safe }}" class="media-content">
+                            {{ contact_link.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
