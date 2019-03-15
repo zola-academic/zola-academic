@@ -80,8 +80,7 @@
             </div>
             <ul class="column is-two-thirds-desktop">
                 {% set publications = get_section(path="publications/_index.md") %}
-                {% set sorted_publications = publications.subsections | reverse %}
-                {% for publication_path in sorted_publications %}
+                {% for publication_path in publications.subsections %}
                 <li class="content">
                     {% set publication = get_section(path=publication_path) %}
                     {{ macros::publication_header_with_image(publication=publication) }}
