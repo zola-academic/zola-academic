@@ -74,6 +74,10 @@ contact_links = [
 # Disable the footer
 disable_footer = false
 
+# Widgets to show on main page
+show_publications = true
+show_posts = true
+
 # Choose your style among these
 # style = "primary"
 style = "link"

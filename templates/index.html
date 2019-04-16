@@ -69,6 +69,7 @@
     </div>
 </section>
 
+{% if config.extra.show_publications %}
 <section class="section">
     <div class="container">
         <div class="columns is-desktop">
@@ -88,6 +89,29 @@
         </div>
     </div>
 </section>
+{% endif %}
+
+{% if config.extra.show_posts %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-one-third-desktop">
+                <h1 class="title is-1" id="posts">Posts</h1>
+            </div>
+            <ul class="column is-two-thirds-desktop">
+                {% set posts = get_section(path="posts/_index.md") %}
+                {% set sorted_post = posts.subsections | reverse %}
+                {% for post_path in sorted_post %}
+                <li class="content">
+                    {% set post = get_section(path=post_path) %}
+                    {{ macros::post_header(post=post) }}
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endif %}
 
 <section id="contact" class="section">
     <div class="container">

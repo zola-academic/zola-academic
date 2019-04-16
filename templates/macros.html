@@ -1,5 +1,16 @@
+{% macro post_header(post) %}
+<h2><a href="{{ get_url(path=post.path)}}">{{ post.title }}</a></h2>
+{% if post.extra %}
+{% if post.extra.description %}
+<p>
+    {{ post.extra.description }}
+</p>
+{% endif %}
+{% endif %}
+{% endmacro %}
+
 {% macro publication_header(publication) %}
-<h2><a href="{{ get_url(path=("./" ~ publication.relative_path))}}">{{ publication.title }}</a></h2>
+<h2><a href="{{ get_url(path=publication.relative_path)}}">{{ publication.title }}</a></h2>
 <p class="has-text-grey"> {{ publication.extra.authors | join(sep=", ") }} <br/>
 {{ publication.extra.publication }}, {{ publication.extra.year }}</p>
 <p>
@@ -18,7 +29,7 @@
 {% macro publication_header_with_image(publication) %}
 <div class="columns is-desktop">
     <div class="column is-desktop is-two-thirds">
-        <h2><a href="{{ get_url(path=("./" ~ publication.relative_path))}}">{{ publication.title }}</a></h2>
+        <h2><a href="{{ get_url(path=publication.relative_path)}}">{{ publication.title }}</a></h2>
         <p class="has-text-grey"> {{ publication.extra.authors | join(sep=", ") }} <br/>
         {{ publication.extra.publication }}, {{ publication.extra.year }}</p>
         <p>
