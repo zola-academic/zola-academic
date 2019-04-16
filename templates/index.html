@@ -25,15 +25,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="column is-two-thirds-desktop content">
-                        {% for page in section.pages %}
-                        {% if page.relative_path == "about.md" %}
-                        <h1>{{ page.title }}</h1>
-                        {{ page.content | safe }}
-                        {% endif %}
-                        {% endfor %}
+                    <div class="column is-two-thirds-desktop">
+                        <div class="content">
+                            {% for page in section.pages %}
+                            {% if page.relative_path == "about.md" %}
+                            <h1>{{ page.title }}</h1>
+                            {{ page.content | safe }}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
                         <div class="columns">
-                            <div class="column is-one-half content">
+                            <div class="column is-5 content">
                                 <h4>Interests</h4>
                                 <ul>
                                     {% for interest in config.extra.interests %}
@@ -45,20 +47,18 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-                            <div class="column is-one-half">
+                            <div class="column is-7 content">
                                 <h4>Education</h4>
                                 {% for education in config.extra.education %}
-                                <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon">
+                                    <div class="columns">
+                                        <span class="icon is-medium column is-narrow">
                                             <i class="fas fa-graduation-cap"></i>
                                         </span>
+                                        <span class="column">
+                                            {{ education.course }}, {{ education.year }}<br/>
+                                            <span class="has-text-grey">{{ education.institution }}</span>
+                                        </span>
                                     </div>
-                                    <div class="media-content">
-                                        <p>{{ education.course }}, {{ education.year }}<br/>
-                                        <span class="has-text-grey">{{ education.institution }}</span></p>
-                                    </div>
-                                </div>
                                 {% endfor %}
                             </div>
                         </div>
@@ -78,8 +78,7 @@
             </div>
             <ul class="column is-two-thirds-desktop">
                 {% set publications = get_section(path="publications/_index.md") %}
-                {% set sorted_publications = publications.subsections | reverse %}
-                {% for publication_path in sorted_publications %}
+                {% for publication_path in publications.subsections %}
                 <li class="content">
                     {% set publication = get_section(path=publication_path) %}
                     {{ macros::publication_header_with_image(publication=publication) }}
@@ -122,11 +121,13 @@
             <div class="column is-two-thirds-desktop">
                 <ul>
                     {% for contact_link in config.extra.contact_links %}
-                    <li class="media">
-                        <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} media-left"></i>
-                        <a href="{{ get_url(path=contact_link.link) | safe }}" class="media-content">
-                            {{ contact_link.name }}
-                        </a>
+                    <li class="level">
+                        <div class="level-left">
+                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} level-item"></i>
+                            <a href="{{ get_url(path=contact_link.link) | safe }}" class="level-item">
+                                {{ contact_link.name }}
+                            </a>
+                        </div>
                     </li>
                     {% endfor %}
                 </ul>
