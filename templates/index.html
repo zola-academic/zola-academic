@@ -70,14 +70,14 @@
 </section>
 
 {% if config.extra.show_publications %}
+{% set publications = get_section(path="publications/_index.md") %}
 <section class="section">
     <div class="container">
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
-                <h1 class="title is-1" id="publications">Publications</h1>
+                <h1 class="title is-1" id="publications">{{ publications.title }}</h1>
             </div>
             <ul class="column is-two-thirds-desktop">
-                {% set publications = get_section(path="publications/_index.md") %}
                 {% for publication_path in publications.subsections %}
                 <li class="content">
                     {% set publication = get_section(path=publication_path) %}
@@ -91,16 +91,15 @@
 {% endif %}
 
 {% if config.extra.show_posts %}
+{% set posts = get_section(path="posts/_index.md") %}
 <section class="section">
     <div class="container">
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
-                <h1 class="title is-1" id="posts">Posts</h1>
+                <h1 class="title is-1" id="posts">{{ posts.title }}</h1>
             </div>
             <ul class="column is-two-thirds-desktop">
-                {% set posts = get_section(path="posts/_index.md") %}
-                {% set sorted_post = posts.subsections | reverse %}
-                {% for post_path in sorted_post %}
+                {% for post_path in posts.subsections %}
                 <li class="content">
                     {% set post = get_section(path=post_path) %}
                     {{ macros::post_header(post=post) }}
