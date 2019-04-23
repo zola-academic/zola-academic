@@ -15,7 +15,7 @@
                 <div class="columns is-desktop">
                     <div class="column is-10 is-offset-1">
                         <div class="content">
-                            {{ macros::publication_header(publication=section) }}
+                            {{ macros::post_header(post=section) }}
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
             <div class="column is-offset-1 is-10">
                 <div class="columns">
                     <div class="column is-one-half content">
-                        {{ macros::post_header(publication=section) }}
+                        {{ macros::post_header(post=section) }}
                     </div>
                     <div class="column is-one-half">
                         <figure class="media-right">
@@ -41,8 +41,16 @@
 {% endif %}
 
 <section class="section">
-    <div class="container has-text-justified">
+    <div class="container">
         <div class="content">
+            {% if section.extra %}
+            {% if section.extra.abstract %}
+            <div class="has-text-justified">
+                <h3>Abstract</h3>
+                {{ section.extra.abstract }}
+            </div>
+            {% endif %}
+            {% endif %}
             {{ section.content | safe }}
         </div>
     </div>

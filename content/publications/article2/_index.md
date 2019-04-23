@@ -1,6 +1,6 @@
 +++
 
-template = "publication.html"
+template = "post.html"
 title = "Necessarily Complicated Research Title"
 date = 2018-10-01
 
