@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <ul class="content">
+            <h1>{{ section.title }}</h1>
+            {% for project_path in section.subsections %}
+            {% set project = get_section(path=project_path) %}
+            <li class="content">{{ macros::project_header_with_image(project=project) }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock content %}

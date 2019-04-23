@@ -111,6 +111,27 @@
 </section>
 {% endif %}
 
+{% if config.extra.show_projects %}
+{% set projects = get_section(path="projects/_index.md") %}
+<section class="section">
+    <div class="container">
+        <div class="columns is-desktop">
+            <div class="column is-one-third-desktop">
+                <h1 class="title is-1" id="projects">{{ projects.title }}</h1>
+            </div>
+            <ul class="column is-two-thirds-desktop">
+                {% for project_path in projects.subsections %}
+                <li class="content">
+                    {% set project = get_section(path=project_path) %}
+                    {{ macros::project_header(project=project) }}
+                    {% endfor %}
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <section id="contact" class="section">
     <div class="container">
         <div class="columns is-desktop">

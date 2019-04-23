@@ -52,3 +52,42 @@
 </div>
 {% endmacro %}
 
+{% macro project_header(project) %}
+<h2><a href="{{ get_url(path=project.relative_path)}}">{{ project.title }}</a></h2>
+    {% for link in project.extra.links %}
+    {% if link.link is starting_with("http://") or link.link is starting_with("https://") %}
+        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ link.link | safe }}">
+    {% else %}
+        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ get_url(path=link.link) | safe }}">
+    {% endif %}
+            {{ link.name }}
+        </a>
+    {% endfor %}
+</p>
+{% endmacro %}
+
+{% macro project_header_with_image(project) %}
+<div class="columns is-desktop">
+    <div class="column is-desktop is-two-thirds">
+        <h2><a href="{{ get_url(path=project.relative_path)}}">{{ project.title }}</a></h2>
+        {% for link in project.extra.links %}
+        {% if link.link is starting_with("http://") or link.link is starting_with("https://") %}
+        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ link.link | safe }}">
+            {% else %}
+            <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ get_url(path=link.link) | safe }}">
+                {% endif %}
+                {{ link.name }}
+            </a>
+            {% endfor %}
+        </p>
+    </div>
+    {% if project.extra and project.extra.image and project.extra.image.path %}
+    <div class="column is-desktop is-one-third container">
+        <figure class="image is-192x192">
+            <img src="{{ get_url(path=project.extra.image.path) }}"></img>
+        </figure>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}
+
