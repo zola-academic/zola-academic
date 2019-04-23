@@ -120,12 +120,14 @@
                 <h1 class="title is-1" id="projects">{{ projects.title }}</h1>
             </div>
             <ul class="column is-two-thirds-desktop">
-                {% for project_path in projects.subsections %}
-                <li class="content">
-                    {% set project = get_section(path=project_path) %}
-                    {{ macros::project_header(project=project) }}
-                    {% endfor %}
-                </li>
+                <div class="columns is-multiline is-desktop">
+                    {% for project_path in projects.subsections %}
+                    <li class="content column is-one-third">
+                        {% set project = get_section(path=project_path) %}
+                        {{ macros::project_header(project=project) }}
+                        {% endfor %}
+                    </li>
+                </div>
             </ul>
         </div>
     </div>
