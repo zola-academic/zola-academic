@@ -81,9 +81,9 @@
                 {% for publication_path in publications.subsections %}
                 <li class="content">
                     {% set publication = get_section(path=publication_path) %}
-                    {{ macros::publication_header_with_image(publication=publication) }}
-                    {% endfor %}
+                    {{ macros::post_header(post=publication, thumbnail=true) }}
                 </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
@@ -102,9 +102,9 @@
                 {% for post_path in posts.subsections %}
                 <li class="content">
                     {% set post = get_section(path=post_path) %}
-                    {{ macros::post_header(post=post) }}
-                    {% endfor %}
+                    {{ macros::post_header(post=post, thumbnail=true) }}
                 </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
