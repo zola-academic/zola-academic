@@ -7,7 +7,7 @@
             <h1>{{ section.title }}</h1>
             {% for publication_path in section.subsections %}
             {% set publication = get_section(path=publication_path) %}
-            <li class="content">{{ macros::publication_header_with_image(publication=publication) }}</li>
+            <li class="content">{{ macros::post_header(post=publication, thumbnail=true) }}</li>
             {% endfor %}
         </ul>
     </div>
