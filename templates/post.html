@@ -42,16 +42,20 @@
 
 <section class="section">
     <div class="container">
-        <div class="content has-text-justified">
-            {% if section.extra %}
-            {% if section.extra.abstract %}
-            <div>
-                <h3>Abstract</h3>
-                {{ section.extra.abstract }}
+        <div class="columns is-desktop">
+            <div class="column is-10 is-offset-1">
+                <div class="content has-text-justified">
+                    {% if section.extra %}
+                    {% if section.extra.abstract %}
+                    <div>
+                        <h3>Abstract</h3>
+                        {{ section.extra.abstract }}
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                    {{ section.content | safe }}
+                </div>
             </div>
-            {% endif %}
-            {% endif %}
-            {{ section.content | safe }}
         </div>
     </div>
 </section>
