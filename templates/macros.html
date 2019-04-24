@@ -29,6 +29,9 @@
         {% endif %}
         {% endif %}
 
+        {% if post.description %}
+        <p>{{ post.description }}</p>
+        {% endif %}
     </div>
     {% if thumbnail %}
     {% if post.extra %}

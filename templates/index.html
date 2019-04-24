@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="column is-two-thirds-desktop">
-                        <div class="content">
+                        <div class="content has-text-justified">
                             {% for page in section.pages %}
                             {% if page.relative_path == "about.md" %}
                             <h1>{{ page.title }}</h1>
@@ -75,7 +75,11 @@
     <div class="container">
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
-                <h1 class="title is-1" id="publications">{{ publications.title }}</h1>
+                <h1 class="title is-1" id="publications">
+                    <a href="{{ get_url(path='publications') }}">
+                        {{ publications.title }}
+                    </a>
+                </h1>
             </div>
             <ul class="column is-two-thirds-desktop">
                 {% for publication_path in publications.subsections %}
@@ -96,7 +100,11 @@
     <div class="container">
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
-                <h1 class="title is-1" id="posts">{{ posts.title }}</h1>
+                <h1 class="title is-1" id="posts">
+                    <a href="{{ get_url(path='posts') }}">
+                        {{ posts.title }}
+                    </a>
+                </h1>
             </div>
             <ul class="column is-two-thirds-desktop">
                 {% for post_path in posts.subsections %}
@@ -117,7 +125,11 @@
     <div class="container">
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
-                <h1 class="title is-1" id="projects">{{ projects.title }}</h1>
+                <h1 class="title is-1" id="projects">
+                    <a href="{{ get_url(path='projects') }}">
+                       {{ projects.title }}
+                    </a>
+                </h1>
             </div>
             <ul class="column is-two-thirds-desktop">
                 <div class="columns is-multiline is-desktop">
@@ -138,7 +150,9 @@
     <div class="container">
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
-                <h1 class="title is-1">Contact</h1>
+                <h1 class="title is-1">
+                    <a href="#contact">Contact</a>
+                </h1>
             </div>
             <div class="column is-two-thirds-desktop">
                 <ul>

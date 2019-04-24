@@ -1,9 +1,7 @@
 +++
 title = "A nice post"
 template = "post.html"
-
-[extra]
-description = "A nice post for you"
+description = "A nice post for you (just kidding, it's a lorem ipsum...)"
 +++
 
 ## Anima Thybridis sacra ut dextras namque modo
