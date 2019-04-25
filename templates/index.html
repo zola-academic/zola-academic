@@ -50,8 +50,8 @@
                             <div class="column is-7 content">
                                 <h4>Education</h4>
                                 {% for education in config.extra.education %}
-                                    <div class="columns">
-                                        <span class="icon is-medium column is-narrow">
+                                    <div class="columns is-mobile">
+                                        <span class="icon is-medium column is-narrow is-mobile">
                                             <i class="fas fa-graduation-cap"></i>
                                         </span>
                                         <span class="column">
@@ -157,10 +157,10 @@
             <div class="column is-two-thirds-desktop">
                 <ul>
                     {% for contact_link in config.extra.contact_links %}
-                    <li class="level">
-                        <div class="level-left">
-                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} level-item"></i>
-                            <a href="{{ get_url(path=contact_link.link) | safe }}" class="level-item">
+                    <li>
+                        <div class="columns is-mobile">
+                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} column is-narrow"></i>
+                            <a href="{{contact_link.link | safe }}" class="column is-narrow is-mobile">
                                 {{ contact_link.name }}
                             </a>
                         </div>
