@@ -80,6 +80,9 @@
                         {{ publications.title }}
                     </a>
                 </h1>
+                {% if publications.description %}
+                    <h4 class="title is-4">{{ publications.description }}</h4>
+                {% endif %}
             </div>
             <ul class="column is-two-thirds-desktop">
                 {% for publication_path in publications.subsections %}
@@ -105,6 +108,9 @@
                         {{ posts.title }}
                     </a>
                 </h1>
+                {% if posts.description %}
+                    <h4 class="title is-4">{{ posts.description }}</h4>
+                {% endif %}
             </div>
             <ul class="column is-two-thirds-desktop">
                 {% for post_path in posts.subsections %}
@@ -130,6 +136,9 @@
                        {{ projects.title }}
                     </a>
                 </h1>
+                {% if projects.description %}
+                    <h4 class="title is-4">{{ projects.description }}</h4>
+                {% endif %}
             </div>
             <ul class="column is-two-thirds-desktop">
                 <div class="columns is-multiline is-desktop">

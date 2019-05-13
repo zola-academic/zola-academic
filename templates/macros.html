@@ -38,7 +38,7 @@
     {% if post.extra.image %}
     <div class="column is-desktop is-one-third container">
         <figure class="image is-192x192">
-            <img src="{{ get_url(path=post.extra.image.path) }}"></img>
+            <img src="{{ get_url(path=post.extra.image.path) }}">
         </figure>
     </div>
     {% endif %}
@@ -54,7 +54,7 @@
         {% if project.extra.image %}
         <div class="card-image">
             <figure class="image" style="margin: 0px;">
-                <img src="{{ project.extra.image.path }}"></img>
+                <img src="{{ project.extra.image.path }}">
             </figure>
         </div>
         {% endif %}
