@@ -52,8 +52,8 @@ social_icons = [
 
 # Your interests
 interests = [
-    { label = "Rust", link = "https://www.rust-lang.org" },
-    { label = "Zola", link = "https://www.getzola.com/)" },
+    { label = "Rust", link = "https://www.rust-lang.org/" },
+    { label = "Zola", link = "https://www.getzola.org/" },
 ]
 
 # Your diplomas

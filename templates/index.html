@@ -40,7 +40,7 @@
                                 <ul>
                                     {% for interest in config.extra.interests %}
                                     {% if interest.link %}
-                                    <li><a href="{{ get_url(path=interest.link) | safe }}">{{ interest.label }}</a></li>
+                                    <li><a href="{{ interest.link | safe }}">{{ interest.label }}</a></li>
                                     {% else %}
                                     <li>{{ interest.label }}</li>
                                     {% endif %}
