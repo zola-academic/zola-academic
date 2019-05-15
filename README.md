@@ -10,20 +10,16 @@ A theme inspired by [Hugo Academic](https://github.com/gcushen/hugo-academic) fo
 
 You should first [install Zola](https://www.getzola.org/documentation/getting-started/installation/).
 
-Once that's done, you can create your page by entering
+Once that's done, I suggest that you start by cloning the example site, with the zola-academic theme as a submodule:
 
 ``` bash
-zola init my-page-name
+git clone --recurse-submodules https://github.com/tforgione/zola-academic-example
 ```
 
-Then, you need to add the zola-academic theme to your page
+Then, you should be able to go in the `zola-academic-example` directory and run
 
-``` bash
-cd my-page-name/themes
-git clone https://github.com/tforgione/academic-zola
+```
+zola serve
 ```
 
-and add the following in your `config.toml` **before** the `[extra]`:
-```
-theme = "zola-academic"
-```
+to see if everything is working and have some fun.
