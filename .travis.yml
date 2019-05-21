@@ -25,7 +25,7 @@ script:
     - git init
     - git add .
     - git commit -m "Deployment from Travis-CI"
-    - git remote add https://tforgione:$GITHUB_TOKEN@github.com/zola-academic/zola-academic.github.io
+    - git remote add origin https://tforgione:$GITHUB_TOKEN@github.com/zola-academic/zola-academic.github.io
     - git push -f --set-upstream origin master
     - cd ..
 
