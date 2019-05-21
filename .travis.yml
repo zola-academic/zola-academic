@@ -1,7 +1,7 @@
 script:
     - mkdir deploy
     - cp -r content static deploy
-    - echo "# The theme of the site\ntheme = \"zola-academic\"\n\n" > deploy/config.toml
+    - echo -e "# The theme of the site\ntheme = \"zola-academic\"\n\n" > deploy/config.toml
     - cat config.toml >> deploy/config.toml
     - cd deploy
     - git init
