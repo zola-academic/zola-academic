@@ -143,11 +143,11 @@
             <ul class="column is-two-thirds-desktop">
                 <div class="columns is-multiline is-desktop">
                     {% for project_path in projects.subsections %}
-                    <li class="content column is-one-third">
-                        {% set project = get_section(path=project_path) %}
-                        {{ macros::project_header(project=project) }}
-                        {% endfor %}
-                    </li>
+                        <li class="content column is-one-third">
+                            {% set project = get_section(path=project_path) %}
+                            {{ macros::project_header(project=project) }}
+                        </li>
+                    {% endfor %}
                 </div>
             </ul>
         </div>
