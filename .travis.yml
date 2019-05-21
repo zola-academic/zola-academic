@@ -11,5 +11,6 @@ deploy:
     github_token: $GITHUB_TOKEN
     repo: tforgione/zola-academic-example
     local_dir: deploy
+    target_branch: master
     on:
         branch: master
