@@ -3,14 +3,11 @@ script:
     - cp -r content static deploy
     - echo "# The theme of the site\ntheme = \"zola-academic\"\n\n" > deploy/config.toml
     - cat config.toml >> deploy/config.toml
-
-deploy:
-    provider: pages
-    overwrite: true
-    skip_cleanup: true
-    github_token: $GITHUB_TOKEN
-    repo: tforgione/zola-academic-example
-    local_dir: deploy
-    target_branch: master
-    on:
-        branch: master
+    - cd deploy
+    - git init
+    - git submodule init
+    - git submodule add https://github.com/tforgione/zola-academic themes/zola-academic
+    - git remote add origin git pull https://tforgione:$GITHUB_TOKEN@mygithost.com/my/repository
+    - git add .
+    - git commit "Deployment from Travis-CI"
+    - git push -f
