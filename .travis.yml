@@ -5,7 +5,7 @@ script:
     # Install zola
     - git clone https://github.com/getzola/zola
     - cd zola
-    - git checkout v.0.5.1
+    - git checkout v0.5.1
     - cargo install --path . -f
     - cd
 
