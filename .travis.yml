@@ -10,4 +10,4 @@ script:
     - git remote add origin https://tforgione:$GITHUB_TOKEN@github.com/tforgione/zola-academic-example
     - git add .
     - git commit -m "Deployment from Travis-CI"
-    - git push -f
+    - git push -f --set-upstream origin master
