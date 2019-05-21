@@ -1,13 +1,37 @@
+language: rust
+cache: cargo
+
 script:
+    # Install zola
+    - git clone https://github.com/getzola/zola
+    - cd zola
+    - git checkout v5.1.0
+    - cargo install --path . -f
+    - cd
+
+    # Build zola-academic-example
     - mkdir deploy
-    - cp -r content static deploy
+    - cp -r content static README.md deploy
     - echo -e "# The theme of the site\ntheme = \"zola-academic\"\n\n" > deploy/config.toml
+    - echo -e "public\nstatic/processed_images" > .gitignore
     - cat config.toml >> deploy/config.toml
     - cd deploy
     - git init
     - git submodule init
-    - git submodule add https://github.com/tforgione/zola-academic themes/zola-academic
-    - git remote add origin https://tforgione:$GITHUB_TOKEN@github.com/tforgione/zola-academic-example
+    - git submodule add https://github.com/zola-academic/zola-academic themes/zola-academic
+    - git remote add origin https://tforgione:$GITHUB_TOKEN@github.com/zola-academic/zola-academic-example
     - git add .
     - git commit -m "Deployment from Travis-CI"
+
+    # Build the site for github.io
+    - zola build -u https://zola-academic.github.io
+    - cd public
+    - git init
+    - git add .
+    - git commit "Deployment"
+    - git remote add https://tforgione:$GITHUB_TOKEN@github.com/zola-academic/zola-academic.github.io
+    - git push -f --set-upstream origin master
+    - cd ..
+
+    # Push the example
     - git push -f --set-upstream origin master
