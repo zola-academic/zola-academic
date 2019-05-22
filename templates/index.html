@@ -76,7 +76,7 @@
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
                 <h1 class="title is-1" id="publications">
-                    <a href="{{ get_url(path='publications') }}">
+                    <a href="{{ get_url(path='publications') | safe }}">
                         {{ publications.title }}
                     </a>
                 </h1>
@@ -104,7 +104,7 @@
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
                 <h1 class="title is-1" id="posts">
-                    <a href="{{ get_url(path='posts') }}">
+                    <a href="{{ get_url(path='posts') | safe }}">
                         {{ posts.title }}
                     </a>
                 </h1>
@@ -132,7 +132,7 @@
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
                 <h1 class="title is-1" id="projects">
-                    <a href="{{ get_url(path='projects') }}">
+                    <a href="{{ get_url(path='projects') | safe }}">
                        {{ projects.title }}
                     </a>
                 </h1>
