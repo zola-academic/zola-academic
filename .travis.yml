@@ -4,7 +4,6 @@ cache: cargo
 script:
     # Install zola
     - (test -x $HOME/.cargo/bin/zola || cargo install --git https://github.com/getzola/zola --branch next -f)
-    - zola --version
 
     # Build zola-academic-example
     - mkdir deploy
@@ -20,7 +19,8 @@ script:
     - git add .
     - git commit -m "Deployment from Travis-CI"
 
-    # Build the site for github.io
+    # Build the site for github.io (build twice so zola generates the processed_images
+    - zola build -u https://zola-academic.github.io
     - zola build -u https://zola-academic.github.io
     - cd public
     - git init
