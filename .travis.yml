@@ -4,6 +4,7 @@ cache: cargo
 script:
     # Install zola
     - (test -x $HOME/.cargo/bin/zola || cargo install --git https://github.com/getzola/zola --branch next -f)
+    - zola --version
 
     # Build zola-academic-example
     - mkdir deploy
@@ -24,7 +25,6 @@ script:
     - cd public
     - git init
     - git add .
-    - ls
     - git commit -m "Deployment from Travis-CI"
     - git remote add origin https://tforgione:$GITHUB_TOKEN@github.com/zola-academic/zola-academic.github.io
     - git push -f --set-upstream origin master

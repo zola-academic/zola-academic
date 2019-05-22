@@ -6,8 +6,11 @@
     {% if section.extra.image %}
         {% if section.extra.image.style == "banner" %}
         <section class="hero">
-            <figure class="image">
-                <img src="{{ config.base_url ~ section.extra.image.path }}">
+            <figure class="image caption-container">
+                <img class="img-captioned" src="{{ config.base_url ~ section.extra.image.path }}">
+                {% if section.extra.image.caption %}
+                <p class="caption">{{ section.extra.image.caption }}</p>
+                {% endif %}
             </figure>
         </section>
         <section class="section">
@@ -29,19 +32,19 @@
                         {{ macros::post_header(post=section) }}
                     </div>
                     <div class="column is-one-half">
-                        <div class="media-right caption-container">
+                        <figure class="media-right caption-container">
                             <img class="img-captioned" src="{{ config.base_url ~ section.extra.image.path }}">
                             {% if section.extra.image.caption %}
                             <p class="caption">{{ section.extra.image.caption }}</p>
                             {% endif %}
-                        </div>
+                        </figure>
                     </div>
                 </div>
             </div>
         </div>
         {% endif %}
-    {% endif %}
-{% endif %}
+        {% endif %}
+        {% endif %}
 
 <section class="section">
     <div class="container">
