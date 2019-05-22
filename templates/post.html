@@ -29,9 +29,12 @@
                         {{ macros::post_header(post=section) }}
                     </div>
                     <div class="column is-one-half">
-                        <figure class="media-right">
-                            <img src="{{ config.base_url ~ section.extra.image.path }}">
-                        </figure>
+                        <div class="media-right caption-container">
+                            <img class="img-captioned" src="{{ config.base_url ~ section.extra.image.path }}">
+                            {% if section.extra.image.alt %}
+                            <p class="caption">{{ section.extra.image.alt }}</p>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
