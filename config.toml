@@ -79,14 +79,8 @@ show_publications = true
 show_posts = true
 show_projects = true
 
-# Choose your style among these
-# style = "primary"
-style = "link"
-# style = "info"
-# style = "success"
-# style = "warning"
-# style = "danger"
-# style = "black"
-# style = "dark"
-# style = "light"
-# style = "white"
+# Choose your colorscheme among those
+# colorscheme = "default"
+colorscheme = "ocean"
+# colorscheme = "forest"
+

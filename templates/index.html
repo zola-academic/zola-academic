@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as macros %}
+{% import "colors.html" as colors %}
 {% block content %}
 <section class="section">
     <div class="container">
@@ -19,7 +20,7 @@
                             <div class="content">
                                 {% for icon in config.extra.social_icons %}
                                 <a class="icon is-large fa-3x" href="{{icon.link | safe }}">
-                                    <i class="has-text-{{ config.extra.style }} {{icon.icon_pack}} {{ icon.icon }}"></i>
+                                    <i class="has-text-{{ colors::style() }} {{icon.icon_pack}} {{ icon.icon }}"></i>
                                 </a>
                                 {% endfor %}
                             </div>
@@ -76,7 +77,7 @@
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
                 <h1 class="title is-1" id="publications">
-                    <a href="{{ get_url(path='publications') | safe }}">
+                    <a class="has-text-{{ colors::style() }}" href="{{ get_url(path='publications') | safe }}">
                         {{ publications.title }}
                     </a>
                 </h1>
@@ -104,7 +105,7 @@
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
                 <h1 class="title is-1" id="posts">
-                    <a href="{{ get_url(path='posts') | safe }}">
+                    <a class="has-text-{{ colors::style() }}" href="{{ get_url(path='posts') | safe }}">
                         {{ posts.title }}
                     </a>
                 </h1>
@@ -132,7 +133,7 @@
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
                 <h1 class="title is-1" id="projects">
-                    <a href="{{ get_url(path='projects') | safe }}">
+                    <a class="has-text-{{ colors::style() }}" href="{{ get_url(path='projects') | safe }}">
                        {{ projects.title }}
                     </a>
                 </h1>
@@ -160,7 +161,7 @@
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
                 <h1 class="title is-1">
-                    <a href="#contact">Contact</a>
+                    <a class="has-text-{{ colors::style() }}" href="#contact">Contact</a>
                 </h1>
             </div>
             <div class="column is-two-thirds-desktop">
@@ -168,7 +169,7 @@
                     {% for contact_link in config.extra.contact_links %}
                     <li>
                         <div class="columns is-mobile">
-                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ config.extra.style }} column is-narrow"></i>
+                            <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ colors::style() }} column is-narrow"></i>
                             <a href="{{contact_link.link | safe }}" class="column is-narrow is-mobile">
                                 {{ contact_link.name }}
                             </a>

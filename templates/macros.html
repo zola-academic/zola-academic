@@ -1,7 +1,8 @@
+{% import "colors.html" as colors %}
 {% macro post_header(post, thumbnail=false) %}
 <div class="columns is-desktop">
     <div class="column is-desktop is-two-thirds">
-        <h2><a href="{{ get_url(path='./' ~ post.relative_path) | safe }}">{{ post.title }}</a></h2>
+        <h2><a class="has-text-{{ colors::style() }}" href="{{ get_url(path='./' ~ post.relative_path) | safe }}">{{ post.title }}</a></h2>
         {% if post.extra %}
         {% if post.extra.authors %}
         <p class="has-text-grey"> {{ post.extra.authors | join(sep=", ") }}
@@ -18,9 +19,9 @@
         {% if post.extra.links %}
         {% for link in post.extra.links %}
         {% if link.link is starting_with("http://") or link.link is starting_with("https://") %}
-        <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ link.link | safe }}">
+        <a class="button is-outlined is-small is-{{ colors::style() }}" href="{{ link.link | safe }}">
             {% else %}
-            <a class="button is-outlined is-small is-{{ config.extra.style }}" href="{{ get_url(path=link.link) | safe }}">
+            <a class="button is-outlined is-small is-{{ colors::style() }}" href="{{ get_url(path=link.link) | safe }}">
                 {% endif %}
                 {{ link.name }}
             </a>
