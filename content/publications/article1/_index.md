@@ -18,7 +18,7 @@ links = [
 publication = "Conf name"
 year = 2016
 
-image = { path = "/publications/article1/screenshot.png", style="figure", alt="What a beautiful figure" }
+image = { path = "/publications/article1/screenshot.png", style="figure", caption = "What a beautiful figure" }
 
 +++
 
