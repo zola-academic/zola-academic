@@ -56,6 +56,7 @@ social_icons = [
 interests = [
     { label = "Rust", link = "https://www.rust-lang.org/" },
     { label = "Zola", link = "https://www.getzola.org/" },
+    { label = "Zola Academic", link = "https://github.com/zola-academic/zola-academic" }
 ]
 
 # Your diplomas
