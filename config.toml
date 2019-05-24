@@ -39,6 +39,8 @@ menu_left = [
 
 # The links you want to put on the right of the navbar
 menu_right = [
+    { name = "Projects", link = "/#projects" },
+    { name = "Posts", link = "/#posts" },
     { name = "Publications", link = "/#publications" },
     { name = "Contact", link = "/#contact" }
 ]

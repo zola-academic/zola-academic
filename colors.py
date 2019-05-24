@@ -7,7 +7,7 @@ class Colorschemes:
     def render(self, out):
         default_scheme = Colorscheme('')
 
-        for property in Colorscheme.properties():
+        for property in default_scheme.__dict__:
             out.write('{% macro ')
             out.write(property)
             out.write('() %}')
@@ -28,13 +28,11 @@ class Colorschemes:
 
 
 class Colorscheme:
-    def properties():
-        return ['background', 'navbar_style', 'style']
-
     def __init__(self, name):
         self.name = name
         self.background = "white"
         self.navbar_style = "light"
+        self.navbar_shadow = "navbar-shadow"
         self.style = "info"
 
 def main():
@@ -45,10 +43,12 @@ def main():
     ocean = Colorscheme("ocean")
     ocean.navbar_style = "link"
     ocean.style = "link"
+    ocean.navbar_shadow = ""
 
     forest = Colorscheme("forest")
     forest.navbar_style = "success"
     forest.style = "success"
+    forest.navbar_shadow = ""
 
     colorschemes = Colorschemes([default, ocean, forest])
 

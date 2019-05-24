@@ -16,7 +16,7 @@
         <title>{{ config.title }}</title>
     </head>
     <body class="layout-documentation page-components">
-        <nav class="navbar is-{{ colors::navbar_style() }}" role="navigation" aria-label="main navigation">
+        <nav class="navbar is-{{ colors::navbar_style() }} {{ colors::navbar_shadow() }}" role="navigation" aria-label="main navigation">
             {% if not config.extra.wide_navbar %}
             <div class="container">
                 {% endif %}
