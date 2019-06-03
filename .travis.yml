@@ -3,13 +3,14 @@ cache: cargo
 
 script:
     # Install zola
-    - (test -x $HOME/.cargo/bin/zola || cargo install --git https://github.com/getzola/zola --branch next -f)
+    - cargo install --git https://github.com/getzola/zola --branch next -f
+    # - (test -x $HOME/.cargo/bin/zola || cargo install --git https://github.com/getzola/zola --branch next -f)
 
     # Build zola-academic-example
     - mkdir deploy
     - cp -r content static README.md deploy
     - echo -e "# The theme of the site\ntheme = \"zola-academic\"\n\n" > deploy/config.toml
-    - echo -e "public\nstatic/processed_images" > .gitignore
+    - echo -e "public\nstatic/processed_images" > deploy/.gitignore
     - cat config.toml >> deploy/config.toml
     - cd deploy
     - git init
@@ -19,8 +20,7 @@ script:
     - git add .
     - git commit -m "Deployment from Travis-CI"
 
-    # Build the site for github.io (build twice so zola generates the processed_images
-    - zola build -u https://zola-academic.github.io
+    # Build the site for github.io
     - zola build -u https://zola-academic.github.io
     - cd public
     - git init
