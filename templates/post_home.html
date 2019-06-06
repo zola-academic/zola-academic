@@ -5,8 +5,8 @@
     <div class="container">
         <ul class="content">
             <h1>{{ section.title }}</h1>
-            {% for post_path in section.subsections %}
-            {% set post = get_section(path=post_path) %}
+            {% for post_path in section.pages %}
+            {% set post = get_page(path=post_path.relative_path) %}
             <li class="content">{{ macros::post_header(post=post, thumbnail=true) }}</li>
             {% endfor %}
         </ul>

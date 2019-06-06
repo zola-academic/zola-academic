@@ -2,14 +2,14 @@
 {% import "macros.html" as macros %}
 {% block content %}
 
-{% if section.extra %}
-    {% if section.extra.image %}
-        {% if section.extra.image.style == "banner" %}
+{% if page.extra %}
+    {% if page.extra.image %}
+        {% if page.extra.image.style == "banner" %}
         <section class="hero">
             <figure class="image caption-container">
-                <img class="img-captioned" src="{{ config.base_url ~ section.extra.image.path }}">
-                {% if section.extra.image.caption %}
-                <p class="caption">{{ section.extra.image.caption }}</p>
+                <img class="img-captioned" src="{{ page.extra.image.path }}">
+                {% if page.extra.image.caption %}
+                <p class="caption">{{ page.extra.image.caption }}</p>
                 {% endif %}
             </figure>
         </section>
@@ -18,24 +18,24 @@
                 <div class="columns is-desktop">
                     <div class="column is-10 is-offset-3">
                         <div class="content">
-                            {{ macros::post_header(post=section) }}
+                            {{ macros::post_header(post=page) }}
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        {% elif section.extra.image.style == "figure" %}
+        {% elif page.extra.image.style == "figure" %}
         <div class="columns">
             <div class="column is-offset-1 is-10">
                 <div class="columns">
                     <div class="column is-one-half content">
-                        {{ macros::post_header(post=section) }}
+                        {{ macros::post_header(post=page) }}
                     </div>
                     <div class="column is-one-half">
                         <figure class="media-right caption-container">
-                            <img class="img-captioned" src="{{ config.base_url ~ section.extra.image.path }}">
-                            {% if section.extra.image.caption %}
-                            <p class="caption">{{ section.extra.image.caption }}</p>
+                            <img class="img-captioned" src="{{ page.extra.image.path }}">
+                            {% if page.extra.image.caption %}
+                            <p class="caption">{{ page.extra.image.caption }}</p>
                             {% endif %}
                         </figure>
                     </div>
@@ -51,14 +51,14 @@
         <div class="columns is-desktop">
             <div class="column is-6-desktop is-offset-3-desktop is-12-tablet">
                 <div class="content">
-                    {% if section.extra %}
-                    {% if section.extra.abstract %}
+                    {% if page.extra %}
+                    {% if page.extra.abstract %}
                     <div>
                         <h3>Abstract</h3>
-                        {{ section.extra.abstract }}
+                        {{ page.extra.abstract }}
                     </div>
                     {% endif %}
-                    {% if section.extra.toc %}
+                    {% if page.extra.toc %}
                     <h1>Table of contents</h1>
                     <ul>
                         {% for h1 in toc %}
@@ -78,7 +78,7 @@
                     </ul>
                     {% endif %}
                     {% endif %}
-                    {{ section.content | safe }}
+                    {{ page.content | safe }}
                 </div>
             </div>
         </div>

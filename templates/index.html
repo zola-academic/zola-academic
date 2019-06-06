@@ -86,9 +86,9 @@
                 {% endif %}
             </div>
             <ul class="column is-two-thirds-desktop">
-                {% for publication_path in publications.subsections %}
+                {% for publication_path in publications.pages %}
                 <li class="content">
-                    {% set publication = get_section(path=publication_path) %}
+                    {% set publication = get_page(path=publication_path.relative_path) %}
                     {{ macros::post_header(post=publication, thumbnail=true) }}
                 </li>
                 {% endfor %}
@@ -114,9 +114,9 @@
                 {% endif %}
             </div>
             <ul class="column is-two-thirds-desktop">
-                {% for post_path in posts.subsections %}
+                {% for post_path in posts.pages %}
                 <li class="content">
-                    {% set post = get_section(path=post_path) %}
+                    {% set post = get_page(path=post_path.relative_path) %}
                     {{ macros::post_header(post=post, thumbnail=true) }}
                 </li>
                 {% endfor %}
@@ -143,9 +143,9 @@
             </div>
             <ul class="column is-two-thirds-desktop">
                 <div class="columns is-multiline is-desktop">
-                    {% for project_path in projects.subsections %}
+                    {% for project_path in projects.pages %}
                         <li class="content column is-one-third">
-                            {% set project = get_section(path=project_path) %}
+                            {% set project = get_page(path=project_path.relative_path) %}
                             {{ macros::project_header(project=project) }}
                         </li>
                     {% endfor %}
@@ -161,7 +161,7 @@
         <div class="columns is-desktop">
             <div class="column is-one-third-desktop">
                 <h1 class="title is-1">
-                    <a class="has-text-{{ colors::style() }}" href="#contact">Contact</a>
+                    <a class="{{ colors::style() }}" href="#contact">Contact</a>
                 </h1>
             </div>
             <div class="column is-two-thirds-desktop">

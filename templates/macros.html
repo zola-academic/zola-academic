@@ -2,7 +2,7 @@
 {% macro post_header(post, thumbnail=false) %}
 <div class="columns is-desktop">
     <div class="column is-desktop is-two-thirds">
-        <h2><a class="has-text-{{ colors::style() }}" href="{{ get_url(path='./' ~ post.relative_path) | safe }}">{{ post.title }}</a></h2>
+        <h2><a class="has-text-{{ colors::style() }}" href="{{ get_url(path=post.path) | safe }}">{{ post.title }}</a></h2>
         {% if post.extra %}
         {% if post.extra.authors %}
         <p class="has-text-grey"> {{ post.extra.authors | join(sep=", ") }}
@@ -37,9 +37,10 @@
     {% if thumbnail %}
     {% if post.extra %}
     {% if post.extra.image %}
+    {% set assets_path = post.relative_path | split(pat="/") | reverse | slice(start=1) | reverse | join(sep="/") %}
     <div class="column is-desktop is-one-third container">
         <figure class="image is-192x192">
-            <img src="{{ resize_image(path='./' ~ post.extra.image.path, width=256, op='fit_width') | safe }}">
+            <img src="{{ resize_image(path = assets_path ~ "/" ~ post.extra.image.path, width=256, op='fit_width') | safe }}">
         </figure>
     </div>
     {% endif %}
@@ -49,13 +50,14 @@
 {% endmacro %}
 
 {% macro project_header(project) %}
-<a href="{{ get_url(path='./' ~ project.relative_path) | safe }}">
+<a href="{{ get_url(path=project.path) | safe }}">
     <div class="card is-2">
         {% if project.extra %}
         {% if project.extra.image %}
+        {% set assets_path = project.relative_path | split(pat="/") | reverse | slice(start=1) | reverse | join(sep="/") %}
         <div class="card-image">
             <figure class="image" style="margin: 0px;">
-                <img src="{{ resize_image(path = './' ~ project.extra.image.path, width=512, op='fit_width') | safe }}">
+                <img src="{{ resize_image(path = assets_path ~ "/" ~ project.extra.image.path, width=512, op='fit_width') | safe }}">
             </figure>
         </div>
         {% endif %}
