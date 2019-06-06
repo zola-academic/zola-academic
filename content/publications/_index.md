@@ -1,6 +1,6 @@
 +++
 title = "Publications"
-template = "publication_home.html"
+template = "section_home.html"
 transparent = true
 render = true
 sort_by = "date"

@@ -1,6 +1,6 @@
 +++
 title = "Posts"
-template = "post_home.html"
+template = "section_home.html"
 transparent = true
 render = true
 sort_by = "none"
