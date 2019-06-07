@@ -37,8 +37,6 @@ class Colorscheme:
 
 def main():
     default = Colorscheme("default")
-    default.navbar_style = "light"
-    default.style = "dark"
 
     ocean = Colorscheme("ocean")
     ocean.navbar_style = "link"
