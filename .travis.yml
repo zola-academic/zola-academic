@@ -3,8 +3,7 @@ cache: cargo
 
 script:
     # Install zola
-    - cargo install --git https://github.com/getzola/zola -f
-    # - (test -x $HOME/.cargo/bin/zola || cargo install --git https://github.com/getzola/zola -f)
+    - (test -x $HOME/.cargo/bin/zola || cargo install --git https://github.com/getzola/zola -f)
 
     # Build zola-academic-example
     - mkdir deploy
