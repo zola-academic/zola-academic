@@ -13,7 +13,7 @@
             }
         </style>
         {% block extracss %}{% endblock extracss %}
-        <title>{{ config.title }}</title>
+        <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     </head>
     <body class="layout-documentation page-components">
         <nav class="navbar is-{{ colors::navbar_style() }} {{ colors::navbar_shadow() }}" role="navigation" aria-label="main navigation">
