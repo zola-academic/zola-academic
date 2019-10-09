@@ -2,7 +2,7 @@
 title = "My Academic Page"
 
 # The URL the site will be built for
-base_url = "http://localhost:8000/"
+base_url = "/"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
