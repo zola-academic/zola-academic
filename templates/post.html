@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% import "macros.html" as macros %}
-{% block content %}
 
+{% block title %}{{ page.title }} - {{ config.title }}{% endblock title %}
+
+{% block content %}
 {% if page.extra %}
     {% if page.extra.image %}
         {% if page.extra.image.style == "banner" %}
