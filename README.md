@@ -1,5 +1,7 @@
 # zola-academic
 
+[![Build Status](https://travis-ci.org/zola-academic/zola-academic.svg?branch=master)](https://travis-ci.org/zola-academic/zola-academic)
+
 A theme inspired by [Hugo Academic](https://github.com/gcushen/hugo-academic) for [Zola](https://www.getzola.org).
 
 ![A screenshot of the zola-academic theme](https://raw.githubusercontent.com/tforgione/zola-academic/master/screenshot-cropped.png)
