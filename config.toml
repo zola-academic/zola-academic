@@ -72,6 +72,7 @@ contact_links = [
   {icon = "fa-skype", icon_pack = "fab", name = "Skype Me", link = "skype:echo123?call"},
   {icon = "fa-keybase", icon_pack = "fab", name = "Chat on Keybase", link = "https://keybase.io/"},
   {icon = "fa-comments", icon_pack = "fas", name = "Discuss on Forum", link = "https://zola.discourse.group/"},
+  {icon = "fa-discord", icon_pack = "fab", name = "John Doe #9999"},
 ]
 
 # Disable the footer

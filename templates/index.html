@@ -170,9 +170,15 @@
                     <li>
                         <div class="columns is-mobile">
                             <i class="fa-2x {{ contact_link.icon_pack }} {{ contact_link.icon }} has-text-{{ colors::style() }} column is-narrow"></i>
+                            {% if contact_link.link %}
                             <a href="{{contact_link.link | safe }}" class="column is-narrow is-mobile">
                                 {{ contact_link.name }}
                             </a>
+                            {% else %}
+                            <span class="column is-narrow is-mobile">
+                                {{ contact_link.name }}
+                            </span>
+                            {% endif %}
                         </div>
                     </li>
                     {% endfor %}
