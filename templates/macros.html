@@ -40,7 +40,8 @@
     {% set assets_path = post.relative_path | split(pat="/") | reverse | slice(start=1) | reverse | join(sep="/") %}
     <div class="column is-desktop is-one-third container">
         <figure class="image is-192x192">
-            <img src="{{ resize_image(path = assets_path ~ "/" ~ post.extra.image.path, width=256, op='fit_width') | safe }}">
+            {% set img = resize_image(path = assets_path ~ "/" ~ post.extra.image.path, width=256, op='fit_width') %}
+            <img src="{{ img.url | safe }}">
         </figure>
     </div>
     {% endif %}
@@ -57,7 +58,8 @@
         {% set assets_path = project.relative_path | split(pat="/") | reverse | slice(start=1) | reverse | join(sep="/") %}
         <div class="card-image">
             <figure class="image" style="margin: 0px;">
-                <img src="{{ resize_image(path = assets_path ~ "/" ~ project.extra.image.path, width=512, op='fit_width') | safe }}">
+                {% set img = resize_image(path = assets_path ~ "/" ~ project.extra.image.path, width=512, op='fit_width') %}
+                <img src="{{ img.url | safe }}">
             </figure>
         </div>
         {% endif %}
