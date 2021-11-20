@@ -1,6 +1,6 @@
 # zola-academic
 
-[![Build Status](https://travis-ci.org/zola-academic/zola-academic.svg?branch=master)](https://travis-ci.org/zola-academic/zola-academic)
+[![Build and deploy GH Pages](https://github.com/zola-academic/zola-academic/actions/workflows/main.yml/badge.svg)](https://github.com/zola-academic/zola-academic/actions/workflows/main.yml)
 
 A theme inspired by [Hugo Academic](https://github.com/gcushen/hugo-academic) for [Zola](https://www.getzola.org).
 
