@@ -24,7 +24,7 @@ author = "John Doe"
 role = "Professor in something"
 
 # Organizations of the author
-organizations = [ { name = "Some place, somewhere" } ]
+organizations = [ { name = "Some place, somewhere", url = "/#" } ]
 
 # Whether the navbar should be screen wide or page wide
 wide_navbar = false

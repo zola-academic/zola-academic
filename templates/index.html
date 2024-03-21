@@ -15,7 +15,13 @@
                             <div class="is-size-3 content"><strong>{{ config.extra.author }}</strong></div>
                             <div class="is-size-5">{{ config.extra.role }}</div>
                             {% for organization in config.extra.organizations %}
-                            <div class="is-size-5 content">{{ organization.name }}</div>
+                            <div class="is-size-5 content">
+                                {% if organization.url %}
+                                    <a href="{{ organization.url | safe }}">{{ organization.name }}</a>
+                                {% else %}
+                                    {{ organization.name }}
+                                {% endif %}
+                            </div>
                             {% endfor %}
                             <div class="content">
                                 {% for icon in config.extra.social_icons %}
