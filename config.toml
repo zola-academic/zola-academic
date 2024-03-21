@@ -83,8 +83,5 @@ show_publications = true
 show_posts = true
 show_projects = true
 
-# Choose your colorscheme among those
-# colorscheme = "default"
-colorscheme = "ocean"
-# colorscheme = "forest"
-
+# Hue of the theme
+hue = 220
