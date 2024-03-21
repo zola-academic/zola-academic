@@ -12,7 +12,7 @@ A theme inspired by [Hugo Academic](https://github.com/gcushen/hugo-academic) fo
 
 It's based on [bulma](https://bulma.io/) and with the latest update, it has an automatic dark theme!
 
-![A screenshot of the zola-academic dark theme](https://raw.githubusercontent.com/zola-academic/zola-academic/master/screenshot-dark-cropped.png)
+![A screenshot of the zola-academic dark theme](https://raw.githubusercontent.com/zola-academic/zola-academic/master/screenshot-cropped-dark.png)
 
 # Getting started
 
