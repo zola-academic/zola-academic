@@ -9,7 +9,7 @@
         {% if page.extra.image.style == "banner" %}
         <section class="hero">
             <figure class="image caption-container">
-                <img class="img-captioned" src="{{ page.extra.image.path }}">
+                <img class="img-captioned" src="{{ macros::webp(path = page.extra.image.path, page = page) }}">
                 {% if page.extra.image.caption %}
                 <p class="caption">{{ page.extra.image.caption }}</p>
                 {% endif %}
@@ -35,7 +35,7 @@
                     </div>
                     <div class="column is-one-half">
                         <figure class="media-right caption-container">
-                            <img class="img-captioned" src="{{ page.extra.image.path }}">
+                            <img class="img-captioned" src="{{ macros::webp(path = page.extra.image.path, page = page) }}">
                             {% if page.extra.image.caption %}
                             <p class="caption">{{ page.extra.image.caption }}</p>
                             {% endif %}

@@ -17,7 +17,7 @@ links = [
     { name = "Demo", link = "#" }
 ]
 
-image = { path = "picture.png", style="banner", caption="What a beautiful figure" }
+image = { path = "picture.webp", style="banner", caption="What a beautiful figure" }
 
 +++
 

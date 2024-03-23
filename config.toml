@@ -31,7 +31,7 @@ wide_navbar = false
 
 # Url of your profile pic
 # You should put your portrait in the static directory.
-portrait = "/static/img/portrait.jpg"
+portrait = "/static/img/portrait.webp"
 
 # The links you want to put on the left of the navbar
 menu_left = [

@@ -39,7 +39,7 @@
     {% set assets_path = post.relative_path | split(pat="/") | reverse | slice(start=1) | reverse | join(sep="/") %}
     <div class="column is-desktop is-one-third container">
         <figure class="image is-192x192">
-            {% set img = resize_image(path = assets_path ~ "/" ~ post.extra.image.path, width=256, op='fit_width') %}
+            {% set img = resize_image(path = assets_path ~ "/" ~ post.extra.image.path, width=256, op='fit_width', format="webp") %}
             <img src="{{ img.url | safe }}">
         </figure>
     </div>
@@ -57,7 +57,7 @@
         {% set assets_path = project.relative_path | split(pat="/") | reverse | slice(start=1) | reverse | join(sep="/") %}
         <div class="card-image">
             <figure class="image" style="margin: 0px;">
-                {% set img = resize_image(path = assets_path ~ "/" ~ project.extra.image.path, width=512, op='fit_width') %}
+                {% set img = resize_image(path = assets_path ~ "/" ~ project.extra.image.path, width=512, op='fit_width', format="webp") %}
                 <img src="{{ img.url | safe }}">
             </figure>
         </div>
@@ -70,4 +70,15 @@
         </div>
     </div>
 </a>
+{% endmacro %}
+
+{% macro webp(path, page) %}
+{% if path is matching(".webp$") %}
+{{ path }}
+{% else %}
+{% set assets_path = page.relative_path | split(pat="/") | reverse | slice(start=1) | reverse | join(sep="/") %}
+{% set meta = get_image_metadata(path = assets_path ~ "/" ~ path) %}
+{% set img = resize_image(path = assets_path ~ "/" ~ path, width = meta.width, height = meta.height, format = "webp") %}
+{{ img.url }}
+{% endif %}
 {% endmacro %}

@@ -9,7 +9,7 @@
                     <div class="column is-one-third-desktop">
                         <div class="box has-text-centered">
                             <figure class="image is-192x192 is-centered is-inline-block">
-                                {% set img = resize_image(path="../" ~ config.extra.portrait, width=192, height=192) %}
+                                {% set img = resize_image(path="../" ~ config.extra.portrait, width=192, height=192, format="webp") %}
                                 <img class="is-rounded" src="{{ img.url | safe }}">
                             </figure>
                             <div class="is-size-3 content"><strong>{{ config.extra.author }}</strong></div>

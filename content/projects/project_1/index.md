@@ -7,5 +7,5 @@ date = 2018-01-01
 [extra]
 links = []
 authors = []
-image = { path = "figure.png", style = "figure" }
+image = { path = "figure.webp", style = "figure" }
 +++

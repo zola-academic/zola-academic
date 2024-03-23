@@ -8,11 +8,11 @@ A theme inspired by [Hugo Academic](https://github.com/gcushen/hugo-academic) fo
 
 *This is a work in progress, it can't hold a candle to hugo-academic*
 
-![A screenshot of the zola-academic theme](https://raw.githubusercontent.com/zola-academic/zola-academic/master/screenshot-cropped.png)
+![A screenshot of the zola-academic theme](https://raw.githubusercontent.com/zola-academic/zola-academic/master/screenshot-cropped.webp)
 
 It's based on [bulma](https://bulma.io/) and with the latest update, it has an automatic dark theme!
 
-![A screenshot of the zola-academic dark theme](https://raw.githubusercontent.com/zola-academic/zola-academic/master/screenshot-cropped-dark.png)
+![A screenshot of the zola-academic dark theme](https://raw.githubusercontent.com/zola-academic/zola-academic/master/screenshot-cropped-dark.webp)
 
 # Getting started
 

@@ -4,13 +4,50 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-        <link rel="stylesheet" href="{{ get_url(path="/main.css") | safe }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css">
         <style>
             :root {
                 --bulma-link-h: {{ config.extra.hue }};
                 --bulma-body-family: Cantarell;
+            }
+
+            .no-bullets li {
+                list-style-type: none;
+            }
+
+            .caption-container {
+                position: relative;
+            }
+
+            .img-captioned {
+                width: 100%;
+                vertical-align: top;
+            }
+
+            .caption {
+                position: absolute;
+                padding: 0.5em 1em;
+                bottom: 0px;
+                right: 0px;
+                color: white;
+                background: black;
+                opacity: 0.7;
+                border-radius: 0.5em 0em 0em 0em;
+            }
+
+            .navbar-shadow {
+                box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.11);
+            }
+
+            html, body {
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            body > footer {
+                margin-top: auto;
             }
         </style>
         {% block extracss %}{% endblock extracss %}
